@@ -1,0 +1,112 @@
+nohup: ignoring input
+Using device: cuda
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:03<00:10,  3.44s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:07<00:08,  4.07s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:12<00:04,  4.27s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:14<00:00,  3.35s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:14<00:00,  3.60s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.08it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.13it/s]
+Processing prompt: 'The future of artificial intelligence is '
+Normal Inference Throughput: 7.51 tokens/sec
+--------------------
+Small Inference Throughput: 44.89 tokens/sec
+--------------------
+
+--- Starting Speculative Generation ---
+  Cycle  1: Draft Time=0.1095s, Verify Time=0.1941s, Accepted=0/5
+  Cycle  2: Draft Time=0.1097s, Verify Time=0.1894s, Accepted=0/5
+  Cycle  3: Draft Time=0.1103s, Verify Time=0.1942s, Accepted=3/5
+  Cycle  4: Draft Time=0.1098s, Verify Time=0.1983s, Accepted=0/5
+  Cycle  5: Draft Time=0.1100s, Verify Time=0.1934s, Accepted=3/5
+  Cycle  6: Draft Time=0.1121s, Verify Time=0.1974s, Accepted=2/5
+  Cycle  7: Draft Time=0.1099s, Verify Time=0.2017s, Accepted=4/5
+  Cycle  8: Draft Time=0.1100s, Verify Time=0.2080s, Accepted=5/5
+  Cycle  9: Draft Time=0.1097s, Verify Time=0.2184s, Accepted=0/5
+  Cycle 10: Draft Time=0.1099s, Verify Time=0.2187s, Accepted=0/5
+  Cycle 11: Draft Time=0.1110s, Verify Time=0.2166s, Accepted=3/5
+  Cycle 12: Draft Time=0.1109s, Verify Time=0.2199s, Accepted=5/5
+  Cycle 13: Draft Time=0.1098s, Verify Time=0.2259s, Accepted=0/5
+  Cycle 14: Draft Time=0.1105s, Verify Time=0.2269s, Accepted=2/5
+  Cycle 15: Draft Time=0.1100s, Verify Time=0.2282s, Accepted=0/5
+  Cycle 16: Draft Time=0.1111s, Verify Time=0.2309s, Accepted=1/5
+  Cycle 17: Draft Time=0.1108s, Verify Time=0.2316s, Accepted=0/5
+  Cycle 18: Draft Time=0.1103s, Verify Time=0.2305s, Accepted=0/5
+  Cycle 19: Draft Time=0.1102s, Verify Time=0.2316s, Accepted=5/5
+  Cycle 20: Draft Time=0.1100s, Verify Time=0.2397s, Accepted=1/5
+  Cycle 21: Draft Time=0.1107s, Verify Time=0.2401s, Accepted=5/5
+  Cycle 22: Draft Time=0.1128s, Verify Time=0.2430s, Accepted=4/5
+  Cycle 23: Draft Time=0.1117s, Verify Time=0.2462s, Accepted=1/5
+  Cycle 24: Draft Time=0.1119s, Verify Time=0.2467s, Accepted=0/5
+  Cycle 25: Draft Time=0.1121s, Verify Time=0.2468s, Accepted=0/5
+  Cycle 26: Draft Time=0.1116s, Verify Time=0.2467s, Accepted=2/5
+  Cycle 27: Draft Time=0.1122s, Verify Time=0.2490s, Accepted=3/5
+  Cycle 28: Draft Time=0.1131s, Verify Time=0.2522s, Accepted=1/5
+  Cycle 29: Draft Time=0.1129s, Verify Time=0.2538s, Accepted=5/5
+  Cycle 30: Draft Time=0.1122s, Verify Time=0.2544s, Accepted=2/5
+  Cycle 31: Draft Time=0.1125s, Verify Time=0.2556s, Accepted=4/5
+  Cycle 32: Draft Time=0.1124s, Verify Time=0.2590s, Accepted=2/5
+  Cycle 33: Draft Time=0.1125s, Verify Time=0.2607s, Accepted=4/5
+--- Finished Speculative Generation ---
+Total time spent drafting: 3.6641s
+Total time spent verifying: 7.5495s
+
+Speculative Decoding Summary:
+  Latency: 11.2273 seconds
+  Tokens: 100
+  Throughput: 8.91 tokens/sec
+  Avg. Accepted Tokens per Cycle: 2.03
+========================================
+
+Processing prompt: 'Machine learning is transforming the world by '
+Normal Inference Throughput: 7.60 tokens/sec
+--------------------
+Small Inference Throughput: 46.63 tokens/sec
+--------------------
+
+--- Starting Speculative Generation ---
+  Cycle  1: Draft Time=0.1093s, Verify Time=0.1873s, Accepted=0/5
+  Cycle  2: Draft Time=0.1102s, Verify Time=0.1933s, Accepted=1/5
+  Cycle  3: Draft Time=0.1101s, Verify Time=0.1863s, Accepted=0/5
+  Cycle  4: Draft Time=0.1099s, Verify Time=0.1881s, Accepted=0/5
+  Cycle  5: Draft Time=0.1108s, Verify Time=0.1932s, Accepted=0/5
+  Cycle  6: Draft Time=0.1107s, Verify Time=0.1930s, Accepted=0/5
+  Cycle  7: Draft Time=0.1096s, Verify Time=0.1952s, Accepted=2/5
+  Cycle  8: Draft Time=0.1106s, Verify Time=0.2011s, Accepted=1/5
+  Cycle  9: Draft Time=0.1103s, Verify Time=0.2006s, Accepted=4/5
+  Cycle 10: Draft Time=0.1099s, Verify Time=0.2080s, Accepted=1/5
+  Cycle 11: Draft Time=0.1103s, Verify Time=0.2124s, Accepted=0/5
+  Cycle 12: Draft Time=0.1107s, Verify Time=0.2155s, Accepted=5/5
+  Cycle 13: Draft Time=0.1102s, Verify Time=0.2221s, Accepted=3/5
+  Cycle 14: Draft Time=0.1098s, Verify Time=0.2258s, Accepted=2/5
+  Cycle 15: Draft Time=0.1102s, Verify Time=0.2287s, Accepted=5/5
+  Cycle 16: Draft Time=0.1100s, Verify Time=0.2336s, Accepted=3/5
+  Cycle 17: Draft Time=0.1101s, Verify Time=0.2366s, Accepted=0/5
+  Cycle 18: Draft Time=0.1104s, Verify Time=0.2374s, Accepted=4/5
+  Cycle 19: Draft Time=0.1104s, Verify Time=0.2417s, Accepted=0/5
+  Cycle 20: Draft Time=0.1107s, Verify Time=0.2432s, Accepted=4/5
+  Cycle 21: Draft Time=0.1109s, Verify Time=0.2466s, Accepted=0/5
+  Cycle 22: Draft Time=0.1118s, Verify Time=0.2465s, Accepted=5/5
+  Cycle 23: Draft Time=0.1118s, Verify Time=0.2490s, Accepted=0/5
+  Cycle 24: Draft Time=0.1117s, Verify Time=0.2503s, Accepted=1/5
+  Cycle 25: Draft Time=0.1120s, Verify Time=0.2501s, Accepted=2/5
+  Cycle 26: Draft Time=0.1119s, Verify Time=0.2523s, Accepted=5/5
+  Cycle 27: Draft Time=0.1118s, Verify Time=0.2533s, Accepted=1/5
+  Cycle 28: Draft Time=0.1123s, Verify Time=0.2548s, Accepted=1/5
+  Cycle 29: Draft Time=0.1127s, Verify Time=0.2551s, Accepted=1/5
+  Cycle 30: Draft Time=0.1126s, Verify Time=0.2560s, Accepted=5/5
+  Cycle 31: Draft Time=0.1123s, Verify Time=0.2579s, Accepted=5/5
+  Cycle 32: Draft Time=0.0478s, Verify Time=0.2597s, Accepted=2/5
+--- Finished Speculative Generation ---
+Total time spent drafting: 3.4838s
+Total time spent verifying: 7.2747s
+
+Speculative Decoding Summary:
+  Latency: 10.7714 seconds
+  Tokens: 95
+  Throughput: 8.82 tokens/sec
+  Avg. Accepted Tokens per Cycle: 1.97
+========================================
+
+
+--- Final Averages ---
+Average Normal Inference Throughput: 7.55 tokens/sec
+Average Small Inference Throughput: 45.76 tokens/sec
+Average Speculative Decoding Throughput: 8.86 tokens/sec
+
+Achieved Throughput Speedup: 1.17x
