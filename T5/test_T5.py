@@ -11,7 +11,7 @@ big_model, big_model_name = core.load_big_model(device)
 
 small_model = core.load_small_model("google/flan-t5-small", device)
 
-prompt = "translate English to German: Climate change is one of the most pressing issues of our time, requiring global cooperation and innovative solutions."
+prompt = "translate English to German: The future of artificial intelligence is rapidly evolving, with new models and capabilities being developed at an unprecedented pace."
 max_new_tokens = 60
 
 print("Running Normal Inference (Baseline)...")
@@ -32,9 +32,11 @@ print(f"Small output  {small_output}")
 # --- Run Speculative Decoding ---
 print("\nRunning Speculative Decoding...")
 spec_output, spec_tokens, spec_latency, spec_tps, avg_accepted, _, _ = core.speculative_decoding_loop(
-    small_model, big_model, tokenizer, prompt, max_new_tokens, gamma=5
+    small_model, big_model, tokenizer, prompt, max_new_tokens, gamma=7
 )
 print(f"Speculative: Latency={spec_latency:.4f}s, Tokens={spec_tokens}, TPS={spec_tps:.2f}")
 print(f"Spec output {spec_output}")
 
 print(f"Avg. Accepted Tokens per Cycle: {avg_accepted:.2f}")
+
+print(f"Speed up: {normal_latency/spec_latency}")

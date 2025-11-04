@@ -118,6 +118,8 @@ def speculative_decoding_loop(small_model, big_model, tokenizer, prompt, max_new
     total_verify_time = 0
     n_generated = 0
     
+    eos_id = tokenizer.eos_token_id
+    
     overall_start_time = time.time()
 
     while n_generated < max_new_tokens:
@@ -135,7 +137,15 @@ def speculative_decoding_loop(small_model, big_model, tokenizer, prompt, max_new
                 output_scores=True,
                 pad_token_id=tokenizer.pad_token_id,
             )
+        
         draft_ids = draft_outputs.sequences[:, decoder_input_ids.shape[-1]:]
+        
+        if draft_ids.numel() > 0:
+            eos_pos = (draft_ids == eos_id).nonzero(as_tuple=False)
+            if eos_pos.numel() > 0:
+                first = int(eos_pos[0, 1])
+                draft_ids = draft_ids[:, :first + 1]
+                
         if torch.cuda.is_available(): torch.cuda.synchronize()
         draft_time = time.time() - draft_start_time
         total_draft_time += draft_time
@@ -174,6 +184,11 @@ def speculative_decoding_loop(small_model, big_model, tokenizer, prompt, max_new
                 corrected_id = big_model_pred_id.unsqueeze(0)
                 decoder_input_ids = torch.cat([decoder_input_ids, accepted_ids, corrected_id], dim=-1)
                 n_generated += i + 1
+                
+                if int(corrected_id.item()) == eos_id:
+                    # stop immediately if big model ended
+                    break
+                
                 all_accepted = False
                 break
         
@@ -182,18 +197,26 @@ def speculative_decoding_loop(small_model, big_model, tokenizer, prompt, max_new
             total_accepted_tokens += current_draft_len
             accepted_len_this_cycle = current_draft_len
             
+            if int(draft_ids[0, -1].item()) == eos_id:
+                decoder_input_ids = torch.cat([decoder_input_ids, draft_ids.to(big_model.device)], dim=-1)
+                n_generated += current_draft_len
+                break
+            
             # Sample one more token from the big model
             next_token_logits = big_model_logits[:, -1, :]
             next_token = torch.argmax(next_token_logits, dim=-1).unsqueeze(0)
             
             decoder_input_ids = torch.cat([decoder_input_ids, draft_ids.to(big_model.device), next_token], dim=-1)
             n_generated += current_draft_len + 1
+            
+            if int(next_token.item()) == eos_id:
+                break
 
-        # print(f"   Cycle {num_draft_cycles:2d}: Draft Time={draft_time:.4f}s, Verify Time={verify_time:.4f}s, Accepted={accepted_len_this_cycle}/{current_draft_len}")
+        # print(f"  Cycle {num_draft_cycles:2d}: Draft Time={draft_time:.4f}s, Verify Time={verify_time:.4f}s, Accepted={accepted_len_this_cycle}/{current_draft_len}")
 
-        if decoder_input_ids[0, -1] == tokenizer.eos_token_id or n_generated >= max_new_tokens:
+        if decoder_input_ids[0, -1] == eos_id or n_generated >= max_new_tokens:
             break
-
+        
     if torch.cuda.is_available(): torch.cuda.synchronize()
     total_latency = time.time() - overall_start_time
 
