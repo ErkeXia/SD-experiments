@@ -1,41 +1,40 @@
 import torch
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, BitsAndBytesConfig
 
-model_name = "google/flan-t5-xxl"
+import T5_SD as core
 
-# 1. quantization config: 4-bit nf4
-bnb_config = BitsAndBytesConfig(
-    load_in_4bit=True,
-    bnb_4bit_quant_type="nf4",
-    bnb_4bit_compute_dtype=torch.float16,
+
+device = core.get_device()
+tokenizer = core.load_tokenizer()
+
+big_model, big_model_name = core.load_big_model(device)
+
+small_model = core.load_small_model("google/flan-t5-small", device)
+
+prompt = "translate English to German: Climate change is one of the most pressing issues of our time, requiring global cooperation and innovative solutions."
+max_new_tokens = 60
+
+print("Running Normal Inference (Baseline)...")
+normal_output, normal_tokens, normal_latency, normal_tps = core.normal_inference(
+    big_model, tokenizer, prompt, max_new_tokens
 )
+print(f"Baseline: Latency={normal_latency:.4f}s, Tokens={normal_tokens}, TPS={normal_tps:.2f}")
+print(f"Big output {normal_output}")
 
-print("Loading tokenizer...")
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-
-print("Loading model (this may take a while)...")
-model = AutoModelForSeq2SeqLM.from_pretrained(
-    model_name,
-    quantization_config=bnb_config,
-    device_map="auto",              # let accelerate split GPU/CPU if needed
-    low_cpu_mem_usage=True,
+# --- Run Small Model Inference (Reference) ---
+print("\nRunning Small Model Inference (Reference)...")
+small_output, small_tokens, small_latency, small_tps = core.normal_inference(
+    small_model, tokenizer, prompt, max_new_tokens
 )
+print(f"Small Model: Latency={small_latency:.4f}s, Tokens={small_tokens}, TPS={small_tps:.2f}")
+print(f"Small output  {small_output}")
 
-# quick sanity check of where layers got placed
-print(model.hf_device_map)
+# --- Run Speculative Decoding ---
+print("\nRunning Speculative Decoding...")
+spec_output, spec_tokens, spec_latency, spec_tps, avg_accepted, _, _ = core.speculative_decoding_loop(
+    small_model, big_model, tokenizer, prompt, max_new_tokens, gamma=5
+)
+print(f"Speculative: Latency={spec_latency:.4f}s, Tokens={spec_tokens}, TPS={spec_tps:.2f}")
+print(f"Spec output {spec_output}")
 
-# 2. prepare a tiny prompt
-prompt = "translate English to German: Hello, how are you?"
-
-inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
-
-# 3. run 1 short generation
-with torch.inference_mode():
-    output_ids = model.generate(
-        **inputs,
-        max_new_tokens=32,
-    )
-
-# 4. decode and print result
-print("=== GENERATED TEXT ===")
-print(tokenizer.decode(output_ids[0], skip_special_tokens=True))
+print(f"Avg. Accepted Tokens per Cycle: {avg_accepted:.2f}")

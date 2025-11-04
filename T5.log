@@ -1,0 +1,1143 @@
+nohup: ignoring input
+/home/ubuntu/.local/lib/python3.10/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Using device: cuda
+Attempting to load google/flan-t5-xxl in 4-bit...
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:28<01:54, 28.57s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:58<01:27, 29.13s/it]Loading checkpoint shards:  60%|██████    | 3/5 [01:28<00:59, 29.82s/it]Loading checkpoint shards:  80%|████████  | 4/5 [01:59<00:30, 30.19s/it]Loading checkpoint shards: 100%|██████████| 5/5 [02:17<00:00, 25.95s/it]Loading checkpoint shards: 100%|██████████| 5/5 [02:17<00:00, 27.59s/it]
+Passing a tuple of `past_key_values` is deprecated and will be removed in Transformers v4.48.0. You should pass an instance of `EncoderDecoderCache` instead, e.g. `past_key_values=EncoderDecoderCache.from_legacy_cache(past_key_values)`.
+
+==============================
+Successfully loaded big model: google/flan-t5-xxl
+==============================
+
+Loading small model: google/flan-t5-base...
+Successfully loaded google/flan-t5-base
+
+Loading small model: google/flan-t5-large...
+Successfully loaded google/flan-t5-large
+
+Loading small model: google/flan-t5-small...
+Successfully loaded google/flan-t5-small
+
+
+
+********************************************************************************
+STARTING EXPERIMENT RUN
+Note: This will take a significant amount of time.
+********************************************************************************
+
+
+--- Warming up google/flan-t5-small (gamma=3) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'translate English to German: The future of artificial intelligence is rapidly evolving, with new models and capabilities being developed at an unprecedented pace.'
+Max new tokens: 60, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=3.0678s, Tokens=43, TPS=14.02
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.4533s, Tokens=34, TPS=75.01
+
+Running Speculative Decoding...
+ ... Speculative: Latency=2.9575s, Tokens=61, TPS=20.63
+ ... Avg. Accepted Tokens per Cycle: 1.10
+
+--- Verification of Outputs ---
+Baseline Output:    Die Zukunft der Künstlichen Intelligenz nimmt sich ernsthaft auf, neue Modelle und Möglichkeiten werden in einer bisher unvermeidlichen Geschwindigkeit entwickelt.
+Speculative Output: Die Zukunft der Künstlichen Intelligenz nimmt sich ernsthaft auf, neue Modelle und Möglichkeiten werden in einer bisher unvermeidlichen Geschwindigkeit entwickelt...........
+WARNING: Outputs differ.
+
+Speedup (Speculative vs Baseline): 1.47x
+==================================================
+
+
+==================================================
+Processing prompt: 'translate English to German: Climate change is one of the most pressing issues of our time, requiring global cooperation and innovative solutions.'
+Max new tokens: 60, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.8753s, Tokens=28, TPS=14.93
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3194s, Tokens=24, TPS=75.14
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.2799s, Tokens=28, TPS=21.88
+ ... Avg. Accepted Tokens per Cycle: 1.33
+
+--- Verification of Outputs ---
+Baseline Output:    Der Klimawandel ist eines der wichtigsten Themen unserer Zeit, die eine globale Zusammenarbeit und innovative Lösungen erfordert.
+Speculative Output: Der Klimawandel ist eines der wichtigsten Themen unserer Zeit, die eine globale Zusammenarbeit und innovative Lösungen erfordert.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 1.47x
+==================================================
+
+
+==================================================
+Processing prompt: 'translate English to German: The quick brown fox jumps over the lazy dog.'
+Max new tokens: 60, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.5949s, Tokens=24, TPS=15.05
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3048s, Tokens=24, TPS=78.74
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.4812s, Tokens=24, TPS=16.20
+ ... Avg. Accepted Tokens per Cycle: 0.71
+
+--- Verification of Outputs ---
+Baseline Output:    Die schnelle roten Fuchs schwimme über den slacken Hund.
+Speculative Output: Die schnelle roten Fuchs schwimme über den slacken Hund.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 1.08x
+==================================================
+
+--- Warming up google/flan-t5-small (gamma=5) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'translate English to German: The future of artificial intelligence is rapidly evolving, with new models and capabilities being developed at an unprecedented pace.'
+Max new tokens: 60, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=2.9359s, Tokens=43, TPS=14.65
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.4324s, Tokens=34, TPS=78.63
+
+Running Speculative Decoding...
+ ... Speculative: Latency=3.3782s, Tokens=61, TPS=18.06
+ ... Avg. Accepted Tokens per Cycle: 1.10
+
+--- Verification of Outputs ---
+Baseline Output:    Die Zukunft der Künstlichen Intelligenz nimmt sich ernsthaft auf, neue Modelle und Möglichkeiten werden in einer bisher unvermeidlichen Geschwindigkeit entwickelt.
+Speculative Output: Die Zukunft der Künstlichen Intelligenz nimmt sich ernsthaft auf, neue Modelle und Möglichkeiten werden in einer bisher unvermeidlichen Geschwindigkeit entwickelt...........
+WARNING: Outputs differ.
+
+Speedup (Speculative vs Baseline): 1.23x
+==================================================
+
+
+==================================================
+Processing prompt: 'translate English to German: Climate change is one of the most pressing issues of our time, requiring global cooperation and innovative solutions.'
+Max new tokens: 60, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.8732s, Tokens=28, TPS=14.95
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3043s, Tokens=24, TPS=78.88
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.2129s, Tokens=28, TPS=23.09
+ ... Avg. Accepted Tokens per Cycle: 1.80
+
+--- Verification of Outputs ---
+Baseline Output:    Der Klimawandel ist eines der wichtigsten Themen unserer Zeit, die eine globale Zusammenarbeit und innovative Lösungen erfordert.
+Speculative Output: Der Klimawandel ist eines der wichtigsten Themen unserer Zeit, die eine globale Zusammenarbeit und innovative Lösungen erfordert.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 1.54x
+==================================================
+
+
+==================================================
+Processing prompt: 'translate English to German: The quick brown fox jumps over the lazy dog.'
+Max new tokens: 60, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.5936s, Tokens=24, TPS=15.06
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3044s, Tokens=24, TPS=78.84
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.7909s, Tokens=24, TPS=13.40
+ ... Avg. Accepted Tokens per Cycle: 0.71
+
+--- Verification of Outputs ---
+Baseline Output:    Die schnelle roten Fuchs schwimme über den slacken Hund.
+Speculative Output: Die schnelle roten Fuchs schwimme über den slacken Hund.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 0.89x
+==================================================
+
+--- Warming up google/flan-t5-small (gamma=7) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'translate English to German: The future of artificial intelligence is rapidly evolving, with new models and capabilities being developed at an unprecedented pace.'
+Max new tokens: 60, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=2.9365s, Tokens=43, TPS=14.64
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.4324s, Tokens=34, TPS=78.64
+
+Running Speculative Decoding...
+ ... Speculative: Latency=3.7375s, Tokens=61, TPS=16.32
+ ... Avg. Accepted Tokens per Cycle: 1.10
+
+--- Verification of Outputs ---
+Baseline Output:    Die Zukunft der Künstlichen Intelligenz nimmt sich ernsthaft auf, neue Modelle und Möglichkeiten werden in einer bisher unvermeidlichen Geschwindigkeit entwickelt.
+Speculative Output: Die Zukunft der Künstlichen Intelligenz nimmt sich ernsthaft auf, neue Modelle und Möglichkeiten werden in einer bisher unvermeidlichen Geschwindigkeit entwickelt...........
+WARNING: Outputs differ.
+
+Speedup (Speculative vs Baseline): 1.11x
+==================================================
+
+
+==================================================
+Processing prompt: 'translate English to German: Climate change is one of the most pressing issues of our time, requiring global cooperation and innovative solutions.'
+Max new tokens: 60, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.8752s, Tokens=28, TPS=14.93
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3052s, Tokens=24, TPS=78.64
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.2369s, Tokens=28, TPS=22.64
+ ... Avg. Accepted Tokens per Cycle: 2.11
+
+--- Verification of Outputs ---
+Baseline Output:    Der Klimawandel ist eines der wichtigsten Themen unserer Zeit, die eine globale Zusammenarbeit und innovative Lösungen erfordert.
+Speculative Output: Der Klimawandel ist eines der wichtigsten Themen unserer Zeit, die eine globale Zusammenarbeit und innovative Lösungen erfordert.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 1.52x
+==================================================
+
+
+==================================================
+Processing prompt: 'translate English to German: The quick brown fox jumps over the lazy dog.'
+Max new tokens: 60, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.5961s, Tokens=24, TPS=15.04
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3044s, Tokens=24, TPS=78.84
+
+Running Speculative Decoding...
+ ... Speculative: Latency=2.0652s, Tokens=24, TPS=11.62
+ ... Avg. Accepted Tokens per Cycle: 0.71
+
+--- Verification of Outputs ---
+Baseline Output:    Die schnelle roten Fuchs schwimme über den slacken Hund.
+Speculative Output: Die schnelle roten Fuchs schwimme über den slacken Hund.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 0.77x
+==================================================
+
+--- Warming up google/flan-t5-base (gamma=3) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'translate English to German: The future of artificial intelligence is rapidly evolving, with new models and capabilities being developed at an unprecedented pace.'
+Max new tokens: 60, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=2.9412s, Tokens=43, TPS=14.62
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.4067s, Tokens=22, TPS=54.09
+
+Running Speculative Decoding...
+ ... Speculative: Latency=3.3169s, Tokens=61, TPS=18.39
+ ... Avg. Accepted Tokens per Cycle: 1.10
+
+--- Verification of Outputs ---
+Baseline Output:    Die Zukunft der Künstlichen Intelligenz nimmt sich ernsthaft auf, neue Modelle und Möglichkeiten werden in einer bisher unvermeidlichen Geschwindigkeit entwickelt.
+Speculative Output: Die Zukunft der Künstlichen Intelligenz nimmt sich ernsthaft auf, neue Modelle und Möglichkeiten werden in einer bisher unvermeidlichen Geschwindigkeit entwickelt...........
+WARNING: Outputs differ.
+
+Speedup (Speculative vs Baseline): 1.26x
+==================================================
+
+
+==================================================
+Processing prompt: 'translate English to German: Climate change is one of the most pressing issues of our time, requiring global cooperation and innovative solutions.'
+Max new tokens: 60, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.8733s, Tokens=28, TPS=14.95
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.4609s, Tokens=25, TPS=54.24
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.3408s, Tokens=28, TPS=20.88
+ ... Avg. Accepted Tokens per Cycle: 1.55
+
+--- Verification of Outputs ---
+Baseline Output:    Der Klimawandel ist eines der wichtigsten Themen unserer Zeit, die eine globale Zusammenarbeit und innovative Lösungen erfordert.
+Speculative Output: Der Klimawandel ist eines der wichtigsten Themen unserer Zeit, die eine globale Zusammenarbeit und innovative Lösungen erfordert.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 1.40x
+==================================================
+
+
+==================================================
+Processing prompt: 'translate English to German: The quick brown fox jumps over the lazy dog.'
+Max new tokens: 60, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.5939s, Tokens=24, TPS=15.06
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.4963s, Tokens=26, TPS=52.39
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.5839s, Tokens=24, TPS=15.15
+ ... Avg. Accepted Tokens per Cycle: 0.85
+
+--- Verification of Outputs ---
+Baseline Output:    Die schnelle roten Fuchs schwimme über den slacken Hund.
+Speculative Output: Die schnelle roten Fuchs schwimme über den slacken Hund.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 1.01x
+==================================================
+
+--- Warming up google/flan-t5-base (gamma=5) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'translate English to German: The future of artificial intelligence is rapidly evolving, with new models and capabilities being developed at an unprecedented pace.'
+Max new tokens: 60, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=2.9364s, Tokens=43, TPS=14.64
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.4059s, Tokens=22, TPS=54.20
+
+Running Speculative Decoding...
+ ... Speculative: Latency=3.9373s, Tokens=61, TPS=15.49
+ ... Avg. Accepted Tokens per Cycle: 1.10
+
+--- Verification of Outputs ---
+Baseline Output:    Die Zukunft der Künstlichen Intelligenz nimmt sich ernsthaft auf, neue Modelle und Möglichkeiten werden in einer bisher unvermeidlichen Geschwindigkeit entwickelt.
+Speculative Output: Die Zukunft der Künstlichen Intelligenz nimmt sich ernsthaft auf, neue Modelle und Möglichkeiten werden in einer bisher unvermeidlichen Geschwindigkeit entwickelt...........
+WARNING: Outputs differ.
+
+Speedup (Speculative vs Baseline): 1.06x
+==================================================
+
+
+==================================================
+Processing prompt: 'translate English to German: Climate change is one of the most pressing issues of our time, requiring global cooperation and innovative solutions.'
+Max new tokens: 60, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.8729s, Tokens=28, TPS=14.95
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.4607s, Tokens=25, TPS=54.27
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.3138s, Tokens=28, TPS=21.31
+ ... Avg. Accepted Tokens per Cycle: 2.11
+
+--- Verification of Outputs ---
+Baseline Output:    Der Klimawandel ist eines der wichtigsten Themen unserer Zeit, die eine globale Zusammenarbeit und innovative Lösungen erfordert.
+Speculative Output: Der Klimawandel ist eines der wichtigsten Themen unserer Zeit, die eine globale Zusammenarbeit und innovative Lösungen erfordert.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 1.43x
+==================================================
+
+
+==================================================
+Processing prompt: 'translate English to German: The quick brown fox jumps over the lazy dog.'
+Max new tokens: 60, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.5987s, Tokens=24, TPS=15.01
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.4987s, Tokens=26, TPS=52.14
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.9855s, Tokens=24, TPS=12.09
+ ... Avg. Accepted Tokens per Cycle: 0.85
+
+--- Verification of Outputs ---
+Baseline Output:    Die schnelle roten Fuchs schwimme über den slacken Hund.
+Speculative Output: Die schnelle roten Fuchs schwimme über den slacken Hund.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 0.81x
+==================================================
+
+--- Warming up google/flan-t5-base (gamma=7) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'translate English to German: The future of artificial intelligence is rapidly evolving, with new models and capabilities being developed at an unprecedented pace.'
+Max new tokens: 60, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=2.9381s, Tokens=43, TPS=14.64
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.4062s, Tokens=22, TPS=54.16
+
+Running Speculative Decoding...
+ ... Speculative: Latency=4.4651s, Tokens=61, TPS=13.66
+ ... Avg. Accepted Tokens per Cycle: 1.18
+
+--- Verification of Outputs ---
+Baseline Output:    Die Zukunft der Künstlichen Intelligenz nimmt sich ernsthaft auf, neue Modelle und Möglichkeiten werden in einer bisher unvermeidlichen Geschwindigkeit entwickelt.
+Speculative Output: Die Zukunft der Künstlichen Intelligenz nimmt sich ernsthaft auf, neue Modelle und Möglichkeiten werden in einer bisher unvermeidlichen Geschwindigkeit entwickelt...........
+WARNING: Outputs differ.
+
+Speedup (Speculative vs Baseline): 0.93x
+==================================================
+
+
+==================================================
+Processing prompt: 'translate English to German: Climate change is one of the most pressing issues of our time, requiring global cooperation and innovative solutions.'
+Max new tokens: 60, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.8726s, Tokens=28, TPS=14.95
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.4605s, Tokens=25, TPS=54.29
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.3768s, Tokens=28, TPS=20.34
+ ... Avg. Accepted Tokens per Cycle: 2.50
+
+--- Verification of Outputs ---
+Baseline Output:    Der Klimawandel ist eines der wichtigsten Themen unserer Zeit, die eine globale Zusammenarbeit und innovative Lösungen erfordert.
+Speculative Output: Der Klimawandel ist eines der wichtigsten Themen unserer Zeit, die eine globale Zusammenarbeit und innovative Lösungen erfordert.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 1.36x
+==================================================
+
+
+==================================================
+Processing prompt: 'translate English to German: The quick brown fox jumps over the lazy dog.'
+Max new tokens: 60, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.5946s, Tokens=24, TPS=15.05
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.4795s, Tokens=26, TPS=54.22
+
+Running Speculative Decoding...
+ ... Speculative: Latency=2.3327s, Tokens=24, TPS=10.29
+ ... Avg. Accepted Tokens per Cycle: 0.85
+
+--- Verification of Outputs ---
+Baseline Output:    Die schnelle roten Fuchs schwimme über den slacken Hund.
+Speculative Output: Die schnelle roten Fuchs schwimme über den slacken Hund.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 0.68x
+==================================================
+
+--- Warming up google/flan-t5-large (gamma=3) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'translate English to German: The future of artificial intelligence is rapidly evolving, with new models and capabilities being developed at an unprecedented pace.'
+Max new tokens: 60, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=2.9358s, Tokens=43, TPS=14.65
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=1.5269s, Tokens=42, TPS=27.51
+
+Running Speculative Decoding...
+ ... Speculative: Latency=4.1036s, Tokens=61, TPS=14.87
+ ... Avg. Accepted Tokens per Cycle: 1.26
+
+--- Verification of Outputs ---
+Baseline Output:    Die Zukunft der Künstlichen Intelligenz nimmt sich ernsthaft auf, neue Modelle und Möglichkeiten werden in einer bisher unvermeidlichen Geschwindigkeit entwickelt.
+Speculative Output: Die Zukunft der Künstlichen Intelligenz nimmt sich ernsthaft auf, neue Modelle und Möglichkeiten werden in einer bisher unvermeidlichen Geschwindigkeit entwickelt...........
+WARNING: Outputs differ.
+
+Speedup (Speculative vs Baseline): 1.01x
+==================================================
+
+
+==================================================
+Processing prompt: 'translate English to German: Climate change is one of the most pressing issues of our time, requiring global cooperation and innovative solutions.'
+Max new tokens: 60, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.8735s, Tokens=28, TPS=14.95
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.9562s, Tokens=27, TPS=28.24
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.6865s, Tokens=28, TPS=16.60
+ ... Avg. Accepted Tokens per Cycle: 1.80
+
+--- Verification of Outputs ---
+Baseline Output:    Der Klimawandel ist eines der wichtigsten Themen unserer Zeit, die eine globale Zusammenarbeit und innovative Lösungen erfordert.
+Speculative Output: Der Klimawandel ist eines der wichtigsten Themen unserer Zeit, die eine globale Zusammenarbeit und innovative Lösungen erfordert.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 1.11x
+==================================================
+
+
+==================================================
+Processing prompt: 'translate English to German: The quick brown fox jumps over the lazy dog.'
+Max new tokens: 60, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.5934s, Tokens=24, TPS=15.06
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.9698s, Tokens=27, TPS=27.84
+
+Running Speculative Decoding...
+ ... Speculative: Latency=2.2099s, Tokens=24, TPS=10.86
+ ... Avg. Accepted Tokens per Cycle: 0.85
+
+--- Verification of Outputs ---
+Baseline Output:    Die schnelle roten Fuchs schwimme über den slacken Hund.
+Speculative Output: Die schnelle roten Fuchs schwimme über den slacken Hund.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 0.72x
+==================================================
+
+--- Warming up google/flan-t5-large (gamma=5) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'translate English to German: The future of artificial intelligence is rapidly evolving, with new models and capabilities being developed at an unprecedented pace.'
+Max new tokens: 60, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=2.9358s, Tokens=43, TPS=14.65
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=1.5499s, Tokens=42, TPS=27.10
+
+Running Speculative Decoding...
+ ... Speculative: Latency=4.4210s, Tokens=61, TPS=13.80
+ ... Avg. Accepted Tokens per Cycle: 1.54
+
+--- Verification of Outputs ---
+Baseline Output:    Die Zukunft der Künstlichen Intelligenz nimmt sich ernsthaft auf, neue Modelle und Möglichkeiten werden in einer bisher unvermeidlichen Geschwindigkeit entwickelt.
+Speculative Output: Die Zukunft der Künstlichen Intelligenz nimmt sich ernsthaft auf, neue Modelle und Möglichkeiten werden in einer bisher unvermeidlichen Geschwindigkeit entwickelt...........
+WARNING: Outputs differ.
+
+Speedup (Speculative vs Baseline): 0.94x
+==================================================
+
+
+==================================================
+Processing prompt: 'translate English to German: Climate change is one of the most pressing issues of our time, requiring global cooperation and innovative solutions.'
+Max new tokens: 60, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.8743s, Tokens=28, TPS=14.94
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.9553s, Tokens=27, TPS=28.26
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.5587s, Tokens=28, TPS=17.96
+ ... Avg. Accepted Tokens per Cycle: 3.00
+
+--- Verification of Outputs ---
+Baseline Output:    Der Klimawandel ist eines der wichtigsten Themen unserer Zeit, die eine globale Zusammenarbeit und innovative Lösungen erfordert.
+Speculative Output: Der Klimawandel ist eines der wichtigsten Themen unserer Zeit, die eine globale Zusammenarbeit und innovative Lösungen erfordert.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 1.20x
+==================================================
+
+
+==================================================
+Processing prompt: 'translate English to German: The quick brown fox jumps over the lazy dog.'
+Max new tokens: 60, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.5941s, Tokens=24, TPS=15.06
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.9647s, Tokens=27, TPS=27.99
+
+Running Speculative Decoding...
+ ... Speculative: Latency=2.7470s, Tokens=24, TPS=8.74
+ ... Avg. Accepted Tokens per Cycle: 1.00
+
+--- Verification of Outputs ---
+Baseline Output:    Die schnelle roten Fuchs schwimme über den slacken Hund.
+Speculative Output: Die schnelle roten Fuchs schwimme über den slacken Hund.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 0.58x
+==================================================
+
+--- Warming up google/flan-t5-large (gamma=7) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'translate English to German: The future of artificial intelligence is rapidly evolving, with new models and capabilities being developed at an unprecedented pace.'
+Max new tokens: 60, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=2.9361s, Tokens=43, TPS=14.65
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=1.4867s, Tokens=42, TPS=28.25
+
+Running Speculative Decoding...
+ ... Speculative: Latency=5.1618s, Tokens=61, TPS=11.82
+ ... Avg. Accepted Tokens per Cycle: 1.65
+
+--- Verification of Outputs ---
+Baseline Output:    Die Zukunft der Künstlichen Intelligenz nimmt sich ernsthaft auf, neue Modelle und Möglichkeiten werden in einer bisher unvermeidlichen Geschwindigkeit entwickelt.
+Speculative Output: Die Zukunft der Künstlichen Intelligenz nimmt sich ernsthaft auf, neue Modelle und Möglichkeiten werden in einer bisher unvermeidlichen Geschwindigkeit entwickelt...........
+WARNING: Outputs differ.
+
+Speedup (Speculative vs Baseline): 0.81x
+==================================================
+
+
+==================================================
+Processing prompt: 'translate English to German: Climate change is one of the most pressing issues of our time, requiring global cooperation and innovative solutions.'
+Max new tokens: 60, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.8732s, Tokens=28, TPS=14.95
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.9542s, Tokens=27, TPS=28.30
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.8165s, Tokens=28, TPS=15.41
+ ... Avg. Accepted Tokens per Cycle: 3.00
+
+--- Verification of Outputs ---
+Baseline Output:    Der Klimawandel ist eines der wichtigsten Themen unserer Zeit, die eine globale Zusammenarbeit und innovative Lösungen erfordert.
+Speculative Output: Der Klimawandel ist eines der wichtigsten Themen unserer Zeit, die eine globale Zusammenarbeit und innovative Lösungen erfordert.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 1.03x
+==================================================
+
+
+==================================================
+Processing prompt: 'translate English to German: The quick brown fox jumps over the lazy dog.'
+Max new tokens: 60, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.5933s, Tokens=24, TPS=15.06
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.9536s, Tokens=27, TPS=28.31
+
+Running Speculative Decoding...
+ ... Speculative: Latency=3.3924s, Tokens=24, TPS=7.07
+ ... Avg. Accepted Tokens per Cycle: 1.00
+
+--- Verification of Outputs ---
+Baseline Output:    Die schnelle roten Fuchs schwimme über den slacken Hund.
+Speculative Output: Die schnelle roten Fuchs schwimme über den slacken Hund.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 0.47x
+==================================================
+
+--- Warming up google/flan-t5-small (gamma=3) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'summarize: (CNN) -- A new study suggests that drinking coffee may help reduce the risk of developing certain types of cancer. The research, published in the journal 'Clinical Gastroenterology and Hepatology', found that coffee drinkers had a lower risk of hepatocellular carcinoma, the most common type of liver cancer. The study's authors, from the University of Milan, analyzed data from 16 previous studies involving more than 3,150 participants. 'Our research confirms past findings that coffee is good for your health, and particularly your liver,' said study co-author Dr. Carlo La Vecchia. The researchers found that people who drank coffee regularly had a 40% reduced risk of liver cancer compared to those who did not drink coffee. The risk reduction was even more significant for those who drank three or more cups a day.'
+Max new tokens: 100, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=2.1851s, Tokens=31, TPS=14.19
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3341s, Tokens=26, TPS=77.83
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.5300s, Tokens=31, TPS=20.26
+ ... Avg. Accepted Tokens per Cycle: 1.21
+
+--- Verification of Outputs ---
+Baseline Output:    The study's authors say that the findings are 'in line with previous research' and that coffee drinkers should continue to drink it.
+Speculative Output: The study's authors say that the findings are 'in line with previous research' and that coffee drinkers should continue to drink it.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 1.43x
+==================================================
+
+
+==================================================
+Processing prompt: 'summarize: (Reuters) - Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation. The MSCI All-Country World Index gained 0.2%, led by strong performances in Europe and Asia. In the United States, the S&P 500 and the Nasdaq Composite opened modestly higher. Investors are awaiting key inflation data later this week, which could influence the Federal Reserve's timeline for tapering its asset purchase program. Despite the inflation fears, market sentiment remains largely positive, supported by ongoing vaccination efforts and strong corporate earnings.'
+Max new tokens: 100, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.9271s, Tokens=27, TPS=14.01
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3323s, Tokens=26, TPS=78.24
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.7662s, Tokens=27, TPS=35.24
+ ... Avg. Accepted Tokens per Cycle: 2.86
+
+--- Verification of Outputs ---
+Baseline Output:    Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation.
+Speculative Output: Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 2.52x
+==================================================
+
+--- Warming up google/flan-t5-small (gamma=5) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'summarize: (CNN) -- A new study suggests that drinking coffee may help reduce the risk of developing certain types of cancer. The research, published in the journal 'Clinical Gastroenterology and Hepatology', found that coffee drinkers had a lower risk of hepatocellular carcinoma, the most common type of liver cancer. The study's authors, from the University of Milan, analyzed data from 16 previous studies involving more than 3,150 participants. 'Our research confirms past findings that coffee is good for your health, and particularly your liver,' said study co-author Dr. Carlo La Vecchia. The researchers found that people who drank coffee regularly had a 40% reduced risk of liver cancer compared to those who did not drink coffee. The risk reduction was even more significant for those who drank three or more cups a day.'
+Max new tokens: 100, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=2.1845s, Tokens=31, TPS=14.19
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3334s, Tokens=26, TPS=77.99
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.8443s, Tokens=31, TPS=16.81
+ ... Avg. Accepted Tokens per Cycle: 1.21
+
+--- Verification of Outputs ---
+Baseline Output:    The study's authors say that the findings are 'in line with previous research' and that coffee drinkers should continue to drink it.
+Speculative Output: The study's authors say that the findings are 'in line with previous research' and that coffee drinkers should continue to drink it.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 1.18x
+==================================================
+
+
+==================================================
+Processing prompt: 'summarize: (Reuters) - Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation. The MSCI All-Country World Index gained 0.2%, led by strong performances in Europe and Asia. In the United States, the S&P 500 and the Nasdaq Composite opened modestly higher. Investors are awaiting key inflation data later this week, which could influence the Federal Reserve's timeline for tapering its asset purchase program. Despite the inflation fears, market sentiment remains largely positive, supported by ongoing vaccination efforts and strong corporate earnings.'
+Max new tokens: 100, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.9268s, Tokens=27, TPS=14.01
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3315s, Tokens=26, TPS=78.44
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.6622s, Tokens=27, TPS=40.77
+ ... Avg. Accepted Tokens per Cycle: 4.40
+
+--- Verification of Outputs ---
+Baseline Output:    Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation.
+Speculative Output: Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 2.91x
+==================================================
+
+--- Warming up google/flan-t5-small (gamma=7) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'summarize: (CNN) -- A new study suggests that drinking coffee may help reduce the risk of developing certain types of cancer. The research, published in the journal 'Clinical Gastroenterology and Hepatology', found that coffee drinkers had a lower risk of hepatocellular carcinoma, the most common type of liver cancer. The study's authors, from the University of Milan, analyzed data from 16 previous studies involving more than 3,150 participants. 'Our research confirms past findings that coffee is good for your health, and particularly your liver,' said study co-author Dr. Carlo La Vecchia. The researchers found that people who drank coffee regularly had a 40% reduced risk of liver cancer compared to those who did not drink coffee. The risk reduction was even more significant for those who drank three or more cups a day.'
+Max new tokens: 100, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=2.1843s, Tokens=31, TPS=14.19
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3328s, Tokens=26, TPS=78.13
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.8344s, Tokens=31, TPS=16.90
+ ... Avg. Accepted Tokens per Cycle: 1.58
+
+--- Verification of Outputs ---
+Baseline Output:    The study's authors say that the findings are 'in line with previous research' and that coffee drinkers should continue to drink it.
+Speculative Output: The study's authors say that the findings are 'in line with previous research' and that coffee drinkers should continue to drink it.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 1.19x
+==================================================
+
+
+==================================================
+Processing prompt: 'summarize: (Reuters) - Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation. The MSCI All-Country World Index gained 0.2%, led by strong performances in Europe and Asia. In the United States, the S&P 500 and the Nasdaq Composite opened modestly higher. Investors are awaiting key inflation data later this week, which could influence the Federal Reserve's timeline for tapering its asset purchase program. Despite the inflation fears, market sentiment remains largely positive, supported by ongoing vaccination efforts and strong corporate earnings.'
+Max new tokens: 100, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.9269s, Tokens=27, TPS=14.01
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3310s, Tokens=26, TPS=78.56
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.6223s, Tokens=27, TPS=43.38
+ ... Avg. Accepted Tokens per Cycle: 5.75
+
+--- Verification of Outputs ---
+Baseline Output:    Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation.
+Speculative Output: Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 3.10x
+==================================================
+
+--- Warming up google/flan-t5-base (gamma=3) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'summarize: (CNN) -- A new study suggests that drinking coffee may help reduce the risk of developing certain types of cancer. The research, published in the journal 'Clinical Gastroenterology and Hepatology', found that coffee drinkers had a lower risk of hepatocellular carcinoma, the most common type of liver cancer. The study's authors, from the University of Milan, analyzed data from 16 previous studies involving more than 3,150 participants. 'Our research confirms past findings that coffee is good for your health, and particularly your liver,' said study co-author Dr. Carlo La Vecchia. The researchers found that people who drank coffee regularly had a 40% reduced risk of liver cancer compared to those who did not drink coffee. The risk reduction was even more significant for those who drank three or more cups a day.'
+Max new tokens: 100, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=2.1847s, Tokens=31, TPS=14.19
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.8900s, Tokens=48, TPS=53.94
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.6294s, Tokens=31, TPS=19.03
+ ... Avg. Accepted Tokens per Cycle: 1.38
+
+--- Verification of Outputs ---
+Baseline Output:    The study's authors say that the findings are 'in line with previous research' and that coffee drinkers should continue to drink it.
+Speculative Output: The study's authors say that the findings are 'in line with previous research' and that coffee drinkers should continue to drink it.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 1.34x
+==================================================
+
+
+==================================================
+Processing prompt: 'summarize: (Reuters) - Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation. The MSCI All-Country World Index gained 0.2%, led by strong performances in Europe and Asia. In the United States, the S&P 500 and the Nasdaq Composite opened modestly higher. Investors are awaiting key inflation data later this week, which could influence the Federal Reserve's timeline for tapering its asset purchase program. Despite the inflation fears, market sentiment remains largely positive, supported by ongoing vaccination efforts and strong corporate earnings.'
+Max new tokens: 100, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.9271s, Tokens=27, TPS=14.01
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.5011s, Tokens=27, TPS=53.88
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.8744s, Tokens=27, TPS=30.88
+ ... Avg. Accepted Tokens per Cycle: 2.86
+
+--- Verification of Outputs ---
+Baseline Output:    Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation.
+Speculative Output: Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 2.20x
+==================================================
+
+--- Warming up google/flan-t5-base (gamma=5) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'summarize: (CNN) -- A new study suggests that drinking coffee may help reduce the risk of developing certain types of cancer. The research, published in the journal 'Clinical Gastroenterology and Hepatology', found that coffee drinkers had a lower risk of hepatocellular carcinoma, the most common type of liver cancer. The study's authors, from the University of Milan, analyzed data from 16 previous studies involving more than 3,150 participants. 'Our research confirms past findings that coffee is good for your health, and particularly your liver,' said study co-author Dr. Carlo La Vecchia. The researchers found that people who drank coffee regularly had a 40% reduced risk of liver cancer compared to those who did not drink coffee. The risk reduction was even more significant for those who drank three or more cups a day.'
+Max new tokens: 100, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=2.1844s, Tokens=31, TPS=14.19
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.8877s, Tokens=48, TPS=54.07
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.8712s, Tokens=31, TPS=16.57
+ ... Avg. Accepted Tokens per Cycle: 1.58
+
+--- Verification of Outputs ---
+Baseline Output:    The study's authors say that the findings are 'in line with previous research' and that coffee drinkers should continue to drink it.
+Speculative Output: The study's authors say that the findings are 'in line with previous research' and that coffee drinkers should continue to drink it.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 1.17x
+==================================================
+
+
+==================================================
+Processing prompt: 'summarize: (Reuters) - Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation. The MSCI All-Country World Index gained 0.2%, led by strong performances in Europe and Asia. In the United States, the S&P 500 and the Nasdaq Composite opened modestly higher. Investors are awaiting key inflation data later this week, which could influence the Federal Reserve's timeline for tapering its asset purchase program. Despite the inflation fears, market sentiment remains largely positive, supported by ongoing vaccination efforts and strong corporate earnings.'
+Max new tokens: 100, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.9266s, Tokens=27, TPS=14.01
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.5026s, Tokens=27, TPS=53.72
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.7579s, Tokens=27, TPS=35.62
+ ... Avg. Accepted Tokens per Cycle: 4.40
+
+--- Verification of Outputs ---
+Baseline Output:    Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation.
+Speculative Output: Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 2.54x
+==================================================
+
+--- Warming up google/flan-t5-base (gamma=7) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'summarize: (CNN) -- A new study suggests that drinking coffee may help reduce the risk of developing certain types of cancer. The research, published in the journal 'Clinical Gastroenterology and Hepatology', found that coffee drinkers had a lower risk of hepatocellular carcinoma, the most common type of liver cancer. The study's authors, from the University of Milan, analyzed data from 16 previous studies involving more than 3,150 participants. 'Our research confirms past findings that coffee is good for your health, and particularly your liver,' said study co-author Dr. Carlo La Vecchia. The researchers found that people who drank coffee regularly had a 40% reduced risk of liver cancer compared to those who did not drink coffee. The risk reduction was even more significant for those who drank three or more cups a day.'
+Max new tokens: 100, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=2.1845s, Tokens=31, TPS=14.19
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.8885s, Tokens=48, TPS=54.03
+
+Running Speculative Decoding...
+ ... Speculative: Latency=2.2167s, Tokens=31, TPS=13.98
+ ... Avg. Accepted Tokens per Cycle: 1.58
+
+--- Verification of Outputs ---
+Baseline Output:    The study's authors say that the findings are 'in line with previous research' and that coffee drinkers should continue to drink it.
+Speculative Output: The study's authors say that the findings are 'in line with previous research' and that coffee drinkers should continue to drink it.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 0.99x
+==================================================
+
+
+==================================================
+Processing prompt: 'summarize: (Reuters) - Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation. The MSCI All-Country World Index gained 0.2%, led by strong performances in Europe and Asia. In the United States, the S&P 500 and the Nasdaq Composite opened modestly higher. Investors are awaiting key inflation data later this week, which could influence the Federal Reserve's timeline for tapering its asset purchase program. Despite the inflation fears, market sentiment remains largely positive, supported by ongoing vaccination efforts and strong corporate earnings.'
+Max new tokens: 100, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.9268s, Tokens=27, TPS=14.01
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.5017s, Tokens=27, TPS=53.82
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.6976s, Tokens=27, TPS=38.70
+ ... Avg. Accepted Tokens per Cycle: 5.75
+
+--- Verification of Outputs ---
+Baseline Output:    Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation.
+Speculative Output: Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 2.76x
+==================================================
+
+--- Warming up google/flan-t5-large (gamma=3) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'summarize: (CNN) -- A new study suggests that drinking coffee may help reduce the risk of developing certain types of cancer. The research, published in the journal 'Clinical Gastroenterology and Hepatology', found that coffee drinkers had a lower risk of hepatocellular carcinoma, the most common type of liver cancer. The study's authors, from the University of Milan, analyzed data from 16 previous studies involving more than 3,150 participants. 'Our research confirms past findings that coffee is good for your health, and particularly your liver,' said study co-author Dr. Carlo La Vecchia. The researchers found that people who drank coffee regularly had a 40% reduced risk of liver cancer compared to those who did not drink coffee. The risk reduction was even more significant for those who drank three or more cups a day.'
+Max new tokens: 100, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=2.1871s, Tokens=31, TPS=14.17
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.7422s, Tokens=21, TPS=28.29
+
+Running Speculative Decoding...
+ ... Speculative: Latency=2.0281s, Tokens=31, TPS=15.29
+ ... Avg. Accepted Tokens per Cycle: 1.58
+
+--- Verification of Outputs ---
+Baseline Output:    The study's authors say that the findings are 'in line with previous research' and that coffee drinkers should continue to drink it.
+Speculative Output: The study's authors say that the findings are 'in line with previous research' and that coffee drinkers should continue to drink it.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 1.08x
+==================================================
+
+
+==================================================
+Processing prompt: 'summarize: (Reuters) - Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation. The MSCI All-Country World Index gained 0.2%, led by strong performances in Europe and Asia. In the United States, the S&P 500 and the Nasdaq Composite opened modestly higher. Investors are awaiting key inflation data later this week, which could influence the Federal Reserve's timeline for tapering its asset purchase program. Despite the inflation fears, market sentiment remains largely positive, supported by ongoing vaccination efforts and strong corporate earnings.'
+Max new tokens: 100, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.9266s, Tokens=27, TPS=14.01
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.9641s, Tokens=27, TPS=28.01
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.1992s, Tokens=27, TPS=22.52
+ ... Avg. Accepted Tokens per Cycle: 2.86
+
+--- Verification of Outputs ---
+Baseline Output:    Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation.
+Speculative Output: Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 1.61x
+==================================================
+
+--- Warming up google/flan-t5-large (gamma=5) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'summarize: (CNN) -- A new study suggests that drinking coffee may help reduce the risk of developing certain types of cancer. The research, published in the journal 'Clinical Gastroenterology and Hepatology', found that coffee drinkers had a lower risk of hepatocellular carcinoma, the most common type of liver cancer. The study's authors, from the University of Milan, analyzed data from 16 previous studies involving more than 3,150 participants. 'Our research confirms past findings that coffee is good for your health, and particularly your liver,' said study co-author Dr. Carlo La Vecchia. The researchers found that people who drank coffee regularly had a 40% reduced risk of liver cancer compared to those who did not drink coffee. The risk reduction was even more significant for those who drank three or more cups a day.'
+Max new tokens: 100, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=2.1842s, Tokens=31, TPS=14.19
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.7416s, Tokens=21, TPS=28.32
+
+Running Speculative Decoding...
+ ... Speculative: Latency=2.6363s, Tokens=31, TPS=11.76
+ ... Avg. Accepted Tokens per Cycle: 1.82
+
+--- Verification of Outputs ---
+Baseline Output:    The study's authors say that the findings are 'in line with previous research' and that coffee drinkers should continue to drink it.
+Speculative Output: The study's authors say that the findings are 'in line with previous research' and that coffee drinkers should continue to drink it.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 0.83x
+==================================================
+
+
+==================================================
+Processing prompt: 'summarize: (Reuters) - Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation. The MSCI All-Country World Index gained 0.2%, led by strong performances in Europe and Asia. In the United States, the S&P 500 and the Nasdaq Composite opened modestly higher. Investors are awaiting key inflation data later this week, which could influence the Federal Reserve's timeline for tapering its asset purchase program. Despite the inflation fears, market sentiment remains largely positive, supported by ongoing vaccination efforts and strong corporate earnings.'
+Max new tokens: 100, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.9266s, Tokens=27, TPS=14.01
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.9625s, Tokens=27, TPS=28.05
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.1088s, Tokens=27, TPS=24.35
+ ... Avg. Accepted Tokens per Cycle: 4.40
+
+--- Verification of Outputs ---
+Baseline Output:    Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation.
+Speculative Output: Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 1.74x
+==================================================
+
+--- Warming up google/flan-t5-large (gamma=7) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'summarize: (CNN) -- A new study suggests that drinking coffee may help reduce the risk of developing certain types of cancer. The research, published in the journal 'Clinical Gastroenterology and Hepatology', found that coffee drinkers had a lower risk of hepatocellular carcinoma, the most common type of liver cancer. The study's authors, from the University of Milan, analyzed data from 16 previous studies involving more than 3,150 participants. 'Our research confirms past findings that coffee is good for your health, and particularly your liver,' said study co-author Dr. Carlo La Vecchia. The researchers found that people who drank coffee regularly had a 40% reduced risk of liver cancer compared to those who did not drink coffee. The risk reduction was even more significant for those who drank three or more cups a day.'
+Max new tokens: 100, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=2.1840s, Tokens=31, TPS=14.19
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.7400s, Tokens=21, TPS=28.38
+
+Running Speculative Decoding...
+ ... Speculative: Latency=2.9157s, Tokens=31, TPS=10.63
+ ... Avg. Accepted Tokens per Cycle: 2.10
+
+--- Verification of Outputs ---
+Baseline Output:    The study's authors say that the findings are 'in line with previous research' and that coffee drinkers should continue to drink it.
+Speculative Output: The study's authors say that the findings are 'in line with previous research' and that coffee drinkers should continue to drink it.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 0.75x
+==================================================
+
+
+==================================================
+Processing prompt: 'summarize: (Reuters) - Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation. The MSCI All-Country World Index gained 0.2%, led by strong performances in Europe and Asia. In the United States, the S&P 500 and the Nasdaq Composite opened modestly higher. Investors are awaiting key inflation data later this week, which could influence the Federal Reserve's timeline for tapering its asset purchase program. Despite the inflation fears, market sentiment remains largely positive, supported by ongoing vaccination efforts and strong corporate earnings.'
+Max new tokens: 100, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=1.9291s, Tokens=27, TPS=14.00
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.9628s, Tokens=27, TPS=28.04
+
+Running Speculative Decoding...
+ ... Speculative: Latency=1.0620s, Tokens=27, TPS=25.42
+ ... Avg. Accepted Tokens per Cycle: 5.75
+
+--- Verification of Outputs ---
+Baseline Output:    Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation.
+Speculative Output: Global stocks edged higher on Monday as investors weighed the prospects of a solid economic recovery against concerns about rising inflation.
+SUCCESS: Outputs match!
+
+Speedup (Speculative vs Baseline): 1.82x
+==================================================
+
+
+
+********************************************************************************
+EXPERIMENT RUN COMPLETE
+********************************************************************************
+
+
+          Experiment Summary: Summarization (CNN/DM) (Greedy / temp=0)          
+┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━┳━━━━━━━━┓
+┃                    ┃         ┃         ┃    Avg. ┃   Avg. ┃         ┃        ┃
+┃                    ┃   Gamma ┃    Avg. ┃    Spec ┃ Normal ┃    Avg. ┃ Outpu… ┃
+┃ Small Model        ┃     (γ) ┃ Speedup ┃     TPS ┃    TPS ┃ Accept… ┃ Match? ┃
+┡━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━╇━━━━━━━━┩
+│ flan-t5-base       │       7 │   1.87x │   26.34 │  14.10 │    3.67 │   ✔    │
+│ flan-t5-base       │       5 │   1.85x │   26.10 │  14.10 │    2.99 │   ✔    │
+│ flan-t5-base       │       3 │   1.77x │   24.95 │  14.10 │    2.12 │   ✔    │
+│ flan-t5-large      │       3 │   1.34x │   18.90 │  14.09 │    2.22 │   ✔    │
+│ flan-t5-large      │       5 │   1.28x │   18.06 │  14.10 │    3.11 │   ✔    │
+│ flan-t5-large      │       7 │   1.28x │   18.03 │  14.10 │    3.92 │   ✔    │
+│ flan-t5-small      │       7 │   2.14x │   30.14 │  14.10 │    3.67 │   ✔    │
+│ flan-t5-small      │       5 │   2.05x │   28.79 │  14.10 │    2.81 │   ✔    │
+│ flan-t5-small      │       3 │   1.97x │   27.75 │  14.10 │    2.04 │   ✔    │
+└────────────────────┴─────────┴─────────┴─────────┴────────┴─────────┴────────┘
+           Experiment Summary: Translation (En->De) (Greedy / temp=0)           
+┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━┳━━━━━━━━┓
+┃                    ┃         ┃         ┃    Avg. ┃   Avg. ┃         ┃        ┃
+┃                    ┃   Gamma ┃    Avg. ┃    Spec ┃ Normal ┃    Avg. ┃ Outpu… ┃
+┃ Small Model        ┃     (γ) ┃ Speedup ┃     TPS ┃    TPS ┃ Accept… ┃ Match? ┃
+┡━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━╇━━━━━━━━┩
+│ flan-t5-base       │       3 │   1.22x │   18.14 │  14.87 │    1.17 │   ✘    │
+│ flan-t5-base       │       5 │   1.10x │   16.30 │  14.87 │    1.35 │   ✘    │
+│ flan-t5-base       │       7 │   0.99x │   14.76 │  14.88 │    1.51 │   ✘    │
+│ flan-t5-large      │       3 │   0.95x │   14.11 │  14.88 │    1.30 │   ✘    │
+│ flan-t5-large      │       5 │   0.91x │   13.50 │  14.88 │    1.85 │   ✘    │
+│ flan-t5-large      │       7 │   0.77x │   11.44 │  14.89 │    1.88 │   ✘    │
+│ flan-t5-small      │       3 │   1.34x │   19.57 │  14.67 │    1.05 │   ✘    │
+│ flan-t5-small      │       5 │   1.22x │   18.18 │  14.88 │    1.21 │   ✘    │
+│ flan-t5-small      │       7 │   1.13x │   16.86 │  14.87 │    1.31 │   ✘    │
+└────────────────────┴─────────┴─────────┴─────────┴────────┴─────────┴────────┘
+
+Experiment script finished.
+Cleaning up models from memory (if possible)...
+Cleanup attempted.
