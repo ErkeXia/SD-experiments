@@ -5,7 +5,7 @@ from rich.table import Table
 import time
 
 # Import the core logic from your original file
-import T5_SD as core
+import T5_SD_std as core
 
 # --- 1. DEFINE EXPERIMENTS ---
 
