@@ -1,0 +1,796 @@
+nohup: ignoring input
+/home/ubuntu/miniconda/envs/sd/lib/python3.11/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+Using device: cuda
+Loading small model: distilgpt2...
+Successfully loaded distilgpt2
+
+Loading small model: gpt2...
+Successfully loaded gpt2
+
+Attempting to load gpt2-medium in torch.bfloat16...
+
+==============================
+Successfully loaded big model: gpt2-medium
+==============================
+
+
+
+********************************************************************************
+STARTING GPT-2 EXPERIMENT RUN
+Note: This will take a significant amount of time.
+********************************************************************************
+
+
+--- Warming up distilgpt2 (gamma=3) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'The future of artificial intelligence is...'
+Max new tokens: 100, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6415s, Tokens=100, TPS=155.89
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.2150s, Tokens=100, TPS=465.06
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.6073s, Tokens=100, TPS=164.66
+ ... Avg. Accepted Tokens per Cycle: 1.27
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...a big question mark.
+
+"I think we're going to see ...
+   Speculative: ...a big question mark.
+
+"I think the big question is...
+
+Speedup (Speculative vs Baseline): 1.06x
+==================================================
+
+
+==================================================
+Processing prompt: 'Machine learning is a field of inquiry devoted to...'
+Max new tokens: 100, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6403s, Tokens=100, TPS=156.18
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.2108s, Tokens=100, TPS=474.45
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.6149s, Tokens=102, TPS=165.87
+ ... Avg. Accepted Tokens per Cycle: 1.27
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...the study of the way in which information is proce...
+   Speculative: ...the study of how information is generated and stor...
+
+Speedup (Speculative vs Baseline): 1.04x
+==================================================
+
+
+==================================================
+Processing prompt: 'In a surprising turn of events, the researchers found that...'
+Max new tokens: 100, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6376s, Tokens=100, TPS=156.83
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.2108s, Tokens=100, TPS=474.48
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.5181s, Tokens=103, TPS=198.80
+ ... Avg. Accepted Tokens per Cycle: 1.71
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...the more the brain is exposed to the drug, the mor...
+   Speculative: ...the more the brain was exposed to the drug, the mo...
+
+Speedup (Speculative vs Baseline): 1.23x
+==================================================
+
+
+==================================================
+Processing prompt: 'The quick brown fox jumps over the lazy dog because...'
+Max new tokens: 100, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6323s, Tokens=100, TPS=158.16
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.2098s, Tokens=100, TPS=476.55
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.3665s, Tokens=102, TPS=278.33
+ ... Avg. Accepted Tokens per Cycle: 2.78
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...he's smarter than the lazy dog.
+
+The quick brown f...
+   Speculative: ...he's smarter than the lazy dog.
+
+The quick brown f...
+
+Speedup (Speculative vs Baseline): 1.73x
+==================================================
+
+
+==================================================
+Processing prompt: 'Once upon a time, in a land far, far away,...'
+Max new tokens: 100, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6342s, Tokens=100, TPS=157.68
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.2103s, Tokens=100, TPS=475.43
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.4637s, Tokens=101, TPS=217.83
+ ... Avg. Accepted Tokens per Cycle: 1.97
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...there lived a man named Tarkus. He was a man of gr...
+   Speculative: ...there lived a man named Tarkus. He was a man of gr...
+
+Speedup (Speculative vs Baseline): 1.37x
+==================================================
+
+--- Warming up distilgpt2 (gamma=5) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'The future of artificial intelligence is...'
+Max new tokens: 100, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6332s, Tokens=100, TPS=157.93
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.2105s, Tokens=100, TPS=475.12
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.7494s, Tokens=105, TPS=140.11
+ ... Avg. Accepted Tokens per Cycle: 1.50
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...a big question mark.
+
+"I think we're going to see ...
+   Speculative: ...a big question mark.
+
+"I think the big question is...
+
+Speedup (Speculative vs Baseline): 0.84x
+==================================================
+
+
+==================================================
+Processing prompt: 'Machine learning is a field of inquiry devoted to...'
+Max new tokens: 100, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6352s, Tokens=100, TPS=157.43
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.2110s, Tokens=100, TPS=473.93
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.7135s, Tokens=100, TPS=140.16
+ ... Avg. Accepted Tokens per Cycle: 1.50
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...the study of the way in which information is proce...
+   Speculative: ...the study of how information is generated and stor...
+
+Speedup (Speculative vs Baseline): 0.89x
+==================================================
+
+
+==================================================
+Processing prompt: 'In a surprising turn of events, the researchers found that...'
+Max new tokens: 100, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6331s, Tokens=100, TPS=157.95
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.2121s, Tokens=100, TPS=471.49
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.5536s, Tokens=101, TPS=182.43
+ ... Avg. Accepted Tokens per Cycle: 2.26
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...the more the brain is exposed to the drug, the mor...
+   Speculative: ...the more the brain was exposed to the drug, the mo...
+
+Speedup (Speculative vs Baseline): 1.14x
+==================================================
+
+
+==================================================
+Processing prompt: 'The quick brown fox jumps over the lazy dog because...'
+Max new tokens: 100, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6358s, Tokens=100, TPS=157.29
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.2099s, Tokens=100, TPS=476.43
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.3754s, Tokens=102, TPS=271.72
+ ... Avg. Accepted Tokens per Cycle: 3.86
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...he's smarter than the lazy dog.
+
+The quick brown f...
+   Speculative: ...he's smarter than the lazy dog.
+
+The quick brown f...
+
+Speedup (Speculative vs Baseline): 1.69x
+==================================================
+
+
+==================================================
+Processing prompt: 'Once upon a time, in a land far, far away,...'
+Max new tokens: 100, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6318s, Tokens=100, TPS=158.27
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.2099s, Tokens=100, TPS=476.49
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.5400s, Tokens=102, TPS=188.89
+ ... Avg. Accepted Tokens per Cycle: 2.40
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...there lived a man named Tarkus. He was a man of gr...
+   Speculative: ...there lived a man named Tarkus. He was a man of gr...
+
+Speedup (Speculative vs Baseline): 1.17x
+==================================================
+
+--- Warming up distilgpt2 (gamma=7) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'The future of artificial intelligence is...'
+Max new tokens: 100, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6316s, Tokens=100, TPS=158.32
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.2103s, Tokens=100, TPS=475.57
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.7178s, Tokens=100, TPS=139.31
+ ... Avg. Accepted Tokens per Cycle: 2.03
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...a big question mark.
+
+"I think we're going to see ...
+   Speculative: ...a long way off, but the technology is here to stay...
+
+Speedup (Speculative vs Baseline): 0.88x
+==================================================
+
+
+==================================================
+Processing prompt: 'Machine learning is a field of inquiry devoted to...'
+Max new tokens: 100, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6338s, Tokens=100, TPS=157.78
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.2101s, Tokens=100, TPS=476.02
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.6603s, Tokens=103, TPS=155.98
+ ... Avg. Accepted Tokens per Cycle: 2.43
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...the study of the way in which information is proce...
+   Speculative: ...the study of the way in which information is proce...
+
+Speedup (Speculative vs Baseline): 0.96x
+==================================================
+
+
+==================================================
+Processing prompt: 'In a surprising turn of events, the researchers found that...'
+Max new tokens: 100, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6334s, Tokens=100, TPS=157.88
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.2098s, Tokens=100, TPS=476.66
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.6386s, Tokens=103, TPS=161.29
+ ... Avg. Accepted Tokens per Cycle: 2.55
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...the more the brain is exposed to the drug, the mor...
+   Speculative: ...the more the brain was exposed to the drug, the mo...
+
+Speedup (Speculative vs Baseline): 0.99x
+==================================================
+
+
+==================================================
+Processing prompt: 'The quick brown fox jumps over the lazy dog because...'
+Max new tokens: 100, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6313s, Tokens=100, TPS=158.39
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.2090s, Tokens=100, TPS=478.43
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.3770s, Tokens=106, TPS=281.15
+ ... Avg. Accepted Tokens per Cycle: 5.24
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...he's smarter than the lazy dog.
+
+The quick brown f...
+   Speculative: ...he's smarter than the lazy dog.
+
+The quick brown f...
+
+Speedup (Speculative vs Baseline): 1.67x
+==================================================
+
+
+==================================================
+Processing prompt: 'Once upon a time, in a land far, far away,...'
+Max new tokens: 100, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6341s, Tokens=100, TPS=157.72
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.2101s, Tokens=100, TPS=475.86
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.5097s, Tokens=101, TPS=198.17
+ ... Avg. Accepted Tokens per Cycle: 3.39
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...there lived a man named Tarkus. He was a man of gr...
+   Speculative: ...there lived a man named Tarkus. He was a man of gr...
+
+Speedup (Speculative vs Baseline): 1.24x
+==================================================
+
+--- Warming up gpt2 (gamma=3) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'The future of artificial intelligence is...'
+Max new tokens: 100, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6343s, Tokens=100, TPS=157.65
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3533s, Tokens=100, TPS=283.04
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.7302s, Tokens=102, TPS=139.69
+ ... Avg. Accepted Tokens per Cycle: 1.55
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...a big question mark.
+
+"I think we're going to see ...
+   Speculative: ...a big question mark.
+
+"I think the big question is...
+
+Speedup (Speculative vs Baseline): 0.87x
+==================================================
+
+
+==================================================
+Processing prompt: 'Machine learning is a field of inquiry devoted to...'
+Max new tokens: 100, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6361s, Tokens=100, TPS=157.20
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3528s, Tokens=100, TPS=283.42
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.6581s, Tokens=103, TPS=156.50
+ ... Avg. Accepted Tokens per Cycle: 1.86
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...the study of the way in which information is proce...
+   Speculative: ...the study of the way in which information is proce...
+
+Speedup (Speculative vs Baseline): 0.97x
+==================================================
+
+
+==================================================
+Processing prompt: 'In a surprising turn of events, the researchers found that...'
+Max new tokens: 100, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6343s, Tokens=100, TPS=157.67
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3530s, Tokens=100, TPS=283.31
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.6234s, Tokens=102, TPS=163.61
+ ... Avg. Accepted Tokens per Cycle: 2.00
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...the more the brain is exposed to the drug, the mor...
+   Speculative: ...the more the brain was exposed to the drug, the mo...
+
+Speedup (Speculative vs Baseline): 1.02x
+==================================================
+
+
+==================================================
+Processing prompt: 'The quick brown fox jumps over the lazy dog because...'
+Max new tokens: 100, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6364s, Tokens=100, TPS=157.12
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3528s, Tokens=100, TPS=283.44
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.4757s, Tokens=101, TPS=212.33
+ ... Avg. Accepted Tokens per Cycle: 2.88
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...he's smarter than the lazy dog.
+
+The quick brown f...
+   Speculative: ...he's smarter than the lazy dog.
+
+The quick brown f...
+
+Speedup (Speculative vs Baseline): 1.34x
+==================================================
+
+
+==================================================
+Processing prompt: 'Once upon a time, in a land far, far away,...'
+Max new tokens: 100, Gamma: 3
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6370s, Tokens=100, TPS=157.00
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3531s, Tokens=100, TPS=283.19
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.5659s, Tokens=101, TPS=178.48
+ ... Avg. Accepted Tokens per Cycle: 2.26
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...there lived a man named Tarkus. He was a man of gr...
+   Speculative: ...there lived a man named Tarkus. He was a man of gr...
+
+Speedup (Speculative vs Baseline): 1.13x
+==================================================
+
+--- Warming up gpt2 (gamma=5) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'The future of artificial intelligence is...'
+Max new tokens: 100, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6321s, Tokens=100, TPS=158.20
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3545s, Tokens=100, TPS=282.12
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.7947s, Tokens=104, TPS=130.87
+ ... Avg. Accepted Tokens per Cycle: 2.35
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...a big question mark.
+
+"I think we're going to see ...
+   Speculative: ...a big question mark.
+
+"I think the big question is...
+
+Speedup (Speculative vs Baseline): 0.80x
+==================================================
+
+
+==================================================
+Processing prompt: 'Machine learning is a field of inquiry devoted to...'
+Max new tokens: 100, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6340s, Tokens=100, TPS=157.74
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3512s, Tokens=100, TPS=284.72
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.8177s, Tokens=100, TPS=122.29
+ ... Avg. Accepted Tokens per Cycle: 2.12
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...the study of the way in which information is proce...
+   Speculative: ...the study of how information is generated and stor...
+
+Speedup (Speculative vs Baseline): 0.78x
+==================================================
+
+
+==================================================
+Processing prompt: 'In a surprising turn of events, the researchers found that...'
+Max new tokens: 100, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6356s, Tokens=100, TPS=157.33
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3537s, Tokens=100, TPS=282.72
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.6405s, Tokens=102, TPS=159.25
+ ... Avg. Accepted Tokens per Cycle: 3.08
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...the more the brain is exposed to the drug, the mor...
+   Speculative: ...the more the brain was exposed to the drug, the mo...
+
+Speedup (Speculative vs Baseline): 0.99x
+==================================================
+
+
+==================================================
+Processing prompt: 'The quick brown fox jumps over the lazy dog because...'
+Max new tokens: 100, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6315s, Tokens=100, TPS=158.34
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3513s, Tokens=100, TPS=284.62
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.4635s, Tokens=101, TPS=217.89
+ ... Avg. Accepted Tokens per Cycle: 4.61
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...he's smarter than the lazy dog.
+
+The quick brown f...
+   Speculative: ...he's smarter than the lazy dog.
+
+The quick brown f...
+
+Speedup (Speculative vs Baseline): 1.36x
+==================================================
+
+
+==================================================
+Processing prompt: 'Once upon a time, in a land far, far away,...'
+Max new tokens: 100, Gamma: 5
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6334s, Tokens=100, TPS=157.87
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3525s, Tokens=100, TPS=283.71
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.6163s, Tokens=103, TPS=167.11
+ ... Avg. Accepted Tokens per Cycle: 3.29
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...there lived a man named Tarkus. He was a man of gr...
+   Speculative: ...there lived a man named Tarkus. He was a man of gr...
+
+Speedup (Speculative vs Baseline): 1.03x
+==================================================
+
+--- Warming up gpt2 (gamma=7) ---
+--- Warmup complete ---
+
+==================================================
+Processing prompt: 'The future of artificial intelligence is...'
+Max new tokens: 100, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6340s, Tokens=100, TPS=157.73
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3545s, Tokens=100, TPS=282.09
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.9522s, Tokens=105, TPS=110.27
+ ... Avg. Accepted Tokens per Cycle: 2.62
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...a big question mark.
+
+"I think we're going to see ...
+   Speculative: ...a long way off, but the technology is here to stay...
+
+Speedup (Speculative vs Baseline): 0.67x
+==================================================
+
+
+==================================================
+Processing prompt: 'Machine learning is a field of inquiry devoted to...'
+Max new tokens: 100, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6314s, Tokens=100, TPS=158.37
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3509s, Tokens=100, TPS=285.00
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.9186s, Tokens=102, TPS=111.03
+ ... Avg. Accepted Tokens per Cycle: 2.64
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...the study of the way in which information is proce...
+   Speculative: ...the study of how information is generated and stor...
+
+Speedup (Speculative vs Baseline): 0.69x
+==================================================
+
+
+==================================================
+Processing prompt: 'In a surprising turn of events, the researchers found that...'
+Max new tokens: 100, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6326s, Tokens=100, TPS=158.08
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3518s, Tokens=100, TPS=284.27
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.7907s, Tokens=106, TPS=134.05
+ ... Avg. Accepted Tokens per Cycle: 3.42
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...the more the brain is exposed to the drug, the mor...
+   Speculative: ...the more the brain was exposed to the drug, the mo...
+
+Speedup (Speculative vs Baseline): 0.80x
+==================================================
+
+
+==================================================
+Processing prompt: 'The quick brown fox jumps over the lazy dog because...'
+Max new tokens: 100, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6325s, Tokens=100, TPS=158.11
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3529s, Tokens=100, TPS=283.36
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.4638s, Tokens=101, TPS=217.78
+ ... Avg. Accepted Tokens per Cycle: 6.21
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...he's smarter than the lazy dog.
+
+The quick brown f...
+   Speculative: ...he's smarter than the lazy dog.
+
+The quick brown f...
+
+Speedup (Speculative vs Baseline): 1.36x
+==================================================
+
+
+==================================================
+Processing prompt: 'Once upon a time, in a land far, far away,...'
+Max new tokens: 100, Gamma: 7
+==================================================
+Running Normal Inference (Baseline)...
+ ... Baseline: Latency=0.6310s, Tokens=100, TPS=158.49
+
+Running Small Model Inference (Reference)...
+ ... Small Model: Latency=0.3509s, Tokens=100, TPS=285.00
+
+Running Speculative Decoding...
+ ... Speculative: Latency=0.6606s, Tokens=105, TPS=158.94
+ ... Avg. Accepted Tokens per Cycle: 4.25
+
+--- Verification of Outputs ---
+WARNING: Outputs differ.
+   Baseline:    ...there lived a man named Tarkus. He was a man of gr...
+   Speculative: ...there lived a man named Tarkus. He was a man of gr...
+
+Speedup (Speculative vs Baseline): 0.96x
+==================================================
+
+
+
+********************************************************************************
+EXPERIMENT RUN COMPLETE
+********************************************************************************
+
+
+  Experiment Summary: Unconditional Generation (GPT-2) (Target: gpt2-medium /   
+                                    Greedy)                                     
+┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━┳━━━━━━━━┓
+┃                    ┃         ┃         ┃    Avg. ┃   Avg. ┃         ┃        ┃
+┃                    ┃   Gamma ┃    Avg. ┃    Spec ┃ Normal ┃    Avg. ┃ Outpu… ┃
+┃ Small Model        ┃     (γ) ┃ Speedup ┃     TPS ┃    TPS ┃ Accept… ┃ Match? ┃
+┡━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━╇━━━━━━━━┩
+│ distilgpt2         │       3 │   1.28x │  205.10 │ 156.95 │    1.80 │   ✘    │
+│ distilgpt2         │       7 │   1.15x │  187.18 │ 158.02 │    3.13 │   ✘    │
+│ distilgpt2         │       5 │   1.15x │  184.66 │ 157.78 │    2.30 │   ✘    │
+│ gpt2               │       3 │   1.06x │  170.12 │ 157.33 │    2.11 │   ✘    │
+│ gpt2               │       5 │   0.99x │  159.48 │ 157.90 │    3.09 │   ✘    │
+│ gpt2               │       7 │   0.89x │  146.42 │ 158.16 │    3.83 │   ✘    │
+└────────────────────┴─────────┴─────────┴─────────┴────────┴─────────┴────────┘
+
+Experiment script finished.
+Cleaning up models from memory (if possible)...
+Cleanup attempted.
